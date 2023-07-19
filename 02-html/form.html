@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form & Input tag</title>
+    <style>
+        body {
+            margin-bottom: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>폼 태그 종류에 대해 알아보자</h1>
+    
+    <!-- form tag: 사용자로부터 입력받는 요소(input, select, textarea)들을 감싸는 태그
+        form tag의 attribute action, method 가 있는데, "서버"와 연관된 내용 -> 추후 소개
+        화면에 드러나지 않는 추상적인 태그 (양식)
+    -->
+    <form>
+        <!-- 모든 input type에는 "name" attribute를 가질 수 있음 ("서버") -->
+        Text <input type="text">
+        Text2 <input type=" text" disabled>
+
+        <br>
+        <!-- 웹 접근성에 적합 => 사용자가 편리하게 사용할 수 있다! -->
+        <label for="user-email">이메일</label>
+        <input type="email" id="user-email" placeholder="ex@gmail.com">
+
+        <br>
+        <!-- textarea: 여러줄을 입력받는 요소
+            - cols, rows: 가로, 세로 길이를 나타냄
+            - 마우스로 textarea 크기 조절 가능
+        -->
+        <textarea cols="30" rows="3" placeholder="문의사항을 입력해주세요."></textarea>
+
+        <br>
+        <input type="color" >
+        <input type="range" >
+        <input type="file" >
+        <input type="number">
+        <input type="date">
+        <input type="datetime-local">
+
+        <br>
+        <h5>당신의 취미는?</h5>
+        <input type="checkbox" name="interest" value="badminton">배드민턴
+        <input type="checkbox" name="interest" value="basketball">농구
+        <input type="checkbox" name="interest" value="movie">영화보기
+        <input type="checkbox" name="interest" value="lay_down">누워있기
+        
+        <h5>당신의 성별은?</h5>
+        <input type="radio" name="gender" value="f" id="genderF"><label for="genderF">여자</label>
+        <input type="radio" name="gender" value="m" id="genderM"><label for="genderM">남자</label>
+        
+
+        <br>
+        <input type="button" value="버튼1">
+        <button type="button">버튼2</button>
+
+        <br>
+        <input type="submit" value="제출1">
+        <button type="submit">제출2</button>
+
+        <br>
+        <select name="flower">
+            <option value="a">장미</option>
+            <option value="b">동백</option>
+            <option value="c">몰리</option>
+        </select>
+    </form>
+    <form>
+        <h2>form 을 이용해서 제출용 폼 만들기!! (실습)</h2>
+        <h3>설문조사</h3>
+        <label for="name">이름</label><input type="text" id="name" />
+        <br />
+        <label for="email">이메일</label><input type="email" id="email" placeholder="love@example.com" />
+        <h4>나이</h4>
+        <input type="radio" name="age" id="ten" checked /><label for="ten">10대</label>
+        <input type="radio" name="age" id="twenty" /><label for="twenty">20대</label>
+        <input type="radio" name="age" id="thirty" /><label for="thirty">30대</label>
+        <input type="radio" name="age" id="fourty" /><label for="fourty">40대</label> <input type="radio" name="meat-animal" id="fifty" /><label
+          for="fifty"
+          >50대</label
+        >
+        <input type="radio" name="meat-animal" id="sixty" /><label for="sixty">60대 이상</label>
+        <h4>원하는 강의(복수응답가능합니다.)</h4>
+        <input type="checkbox" name="meat-animal" id="html" checked /><label for="html">html</label>
+        <input type="checkbox" name="meat-animal" id="js" /><label for="js">javascript</label>
+        <input type="checkbox" name="meat-animal" id="css" /><label for="css">css</label>
+        <br />
+        <br />
+        <textarea cols="100" rows="10" placeholder="하고 싶은 말을 써주세요: &#41;"></textarea>
+        <button>제출</button>
+    </form>
+
+    <form>
+        
+    </form>
+
+    
+</body>
+</html>
