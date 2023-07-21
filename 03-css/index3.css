@@ -1,0 +1,67 @@
+/* 하위(후손) 선택자: 공백(띄어쓰기) */
+body section {
+    /* 경계선: 두께 선스타일 선택상 */
+    border: 1px solid blue;
+}
+
+body section h2 {
+    border: 1px solid green;
+}
+
+/* 자식 선택자: > */
+.first > h2 {
+    color: white;
+    background-color: navy;
+}
+
+.second > h2 {
+    color: navy;
+    background-color: white;
+}
+
+/* 인접 형제 선택자: + */
+/* 주의사항: kong이라는 id를 갖는 요소 바로 뒤에 li태그가 있어야만 적용 */
+#kong + li {
+    background-color: aqua;
+}
+/* 일반 형제 선택자: ~ */
+#kong ~ li {
+    color: rgb(255, 0, 0);
+}
+
+/* CSS 색상 */
+/* 
+1. 색상 키워드: red, blue, green, ...
+2. 16진수 코드(#xxxxxx)
+0 ~ 9, a, b, c, d, e, f: 16개의 기호르 표현
+- #ffffff: Red(ff), green(ff), Blue(ff) -> white
+- #000000: red(00), green(00), blue(00) -> black
+3. rgb(0~255, 0~255, 0~255)
+-rgb(0, 0, 0): black
+-rgb(255, 255, 255): white
+ */
+
+span ~ .lion {
+    font-weight: bold;
+}
+
+ .lion {
+    color: sienna;
+ }
+
+p.lion {
+    background-color: red;
+}
+ul .lion{
+    background-color: greenyellow;
+}
+
+#tiger {
+    background-color: yellow;
+}
+#tiger + li {
+    background-color: skyblue;
+}
+li.lion ~ li {
+    background-color: orange;
+}
