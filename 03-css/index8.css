@@ -9,10 +9,14 @@
 /* overflow-x: 수평 방향으로 넘칭 때 처리 */
 /* overflow-y: 수직 방향으로 넘칭 때 처리 */
 
-.box {
-    background-color: skyblue;
-    width: 400px;
-    height: 100px;
+/* .box { */
+    /* background-color: black; */
+    /* color: white; */
+    /* width: 100px; */
+    /* height: 100px; */
+    /* overflow-x: hidden; */
+    /* overflow-y: scroll; */
+
 
     /* overflow: visible; */
     /* overflow: hidden; */
@@ -23,4 +27,20 @@
     /* overflow-y: hidden; */
     /* overflow-y: scroll; */
     /* overflow-y: auto; */
-}
+/* } */
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  
+  div:hover {
+    width: 300px;
+    height: 300px;
+    transition: all 1s;
+    transition-delay: 0.5s;
+  }
