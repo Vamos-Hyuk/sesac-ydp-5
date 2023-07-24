@@ -6,11 +6,11 @@
 }
 @keyframes mim {
     0% {
-        left : 100%;
-        width: 200%;
+        left: 100%;
+        width: 500%;
     }
     100% {
-        left : 0px;
+        left: 0%;
         width: 100%;
     }
 }
