@@ -7,7 +7,7 @@ p {
 @keyframes mim {
     0% {
         left: 100%;
-        width: 500%;
+        width: 200%;
     }
     100% {
         left: 0%;
