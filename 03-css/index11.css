@@ -190,48 +190,57 @@ header {
     margin-left: 20px;
 }
 
+/* 헤더2 */
 
-.header2 .menus {
+.header2 > .menus{
+    display:flex;
+    font-weight: bold;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+/* 헤더3 */
+.header3{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.header3 .menu-left{
+    display: flex;
+    justify-content: space-between;
+}
 
-.header3 {
+.header3 .menu-left ul{
     display: flex;
-    padding: 0 20px;
     justify-content: space-between;
-    font-weight: bold;
-    align-items: baseline;
 }
-.header3>ul {
+
+.header3 .menu-left ul li{
+    margin: 0 20px;
+}
+
+.header3 .menu-right{
     display: flex;
-    padding: 0 10px;
-}
-.header3>ul>li {
-    margin: 0 10px;
-}
-.header4{
-    padding: 0 20px;
-    display:flex;
-    font-weight: bold;
     justify-content: space-between;
-    align-items: baseline;
 }
-.header4>.menu-left {
+
+.header3 .menu-right li{
+    margin: 0 20px;
+}
+
+
+
+/* 헤더4 */
+.header4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header4 ul {
     display: flex;
 }
-.header4>.menu-left>ul {
-    display: flex;
-    margin: 0 10px;
-}
-.header4>.menu-left>ul>li {
-    margin: 0 10px;
-}
-.header4>.menu-right {
-    display: flex;
-}
-.header4 > .menu-right > li {
-    margin: 0 10px;
+
+.header4 ul li {
+    margin: 20px;
 }
