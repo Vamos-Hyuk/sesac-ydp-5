@@ -83,7 +83,7 @@ console.log(arr2);
 console.log(arr2.join(''));
 console.log(arr2.join('-'));
 
-// 메서드 체이닝(method chaing)
+// 메서드 체이닝(method chaining)
 // 여러 메서드를 연결해서 사용할 수 있다!
 console.log('hello'.split(''));
 console.log('hello'.split('').reverse());
