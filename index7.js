@@ -91,3 +91,30 @@ for (let i = 0; i < 100; i++) {
   console.log(i, sum3);
 }
 console.log(sum3);
+
+// 실습. 합계 구하기
+let sum4 = 0;
+for (let i = 0; i < 101; i++) {
+  if (i % 2 == 0 || i % 5 == 0) {
+    sum4 += i;
+  }
+}
+console.log(sum4);
+// 실습. 13의 배수이자 홀수를 찾아보자
+for (let i = 0; i < 10001; i++) {
+  if (i % 13 == 0 && i % 2 == 1) {
+    console.log(i);
+  }
+}
+let numbers = parseInt(prompt('숫자 입력'));
+for (let i = 0; i <= numbers; i++) {
+  if (i % 13 == 0 && i % 2 == 1) {
+    console.log(i);
+  }
+}
+// 실습. 구구단 만들기
+for (let i = 2; i < 10; i++) {
+  for (let j = 1; j < 10; j++) {
+    console.log(i + 'x' + j + '=' + i * j);
+  }
+}
