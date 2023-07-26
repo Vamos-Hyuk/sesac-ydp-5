@@ -87,7 +87,7 @@ const myMulti = (a, b) => {
 };
 console.log(myMulti(3, 4));
 
-// 호이스팅(hosting)
+// 호이스팅(hoisting)
 // : "끌어올리다" 사전적 의미
 // 함수에서는 "함수 선언문"이 호이스팅 대상이 됨
 // : 코드가 실행되기 전에 변수/함수 선언을 최상단으로 끌어올리는 현상
@@ -107,14 +107,12 @@ const myhello2 = function () {
 };
 
 // 실습 JavaScript 함수 실습(1)
-
 const multiply = (a, b) => a * b;
 console.log(multiply(3, 7));
 console.log(multiply(2, 2));
+
 // 실습 JavaScript 함수 실습(2)
-
 const square = (a) => a ** 2;
-
 console.log(square(4));
 console.log(square(11));
 console.log(square(5));
