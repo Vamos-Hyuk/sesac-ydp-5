@@ -174,5 +174,17 @@ const filterResult1 = words.filter((e) => e.length > 3);
 console.log(filterResult1);
 
 // 2. 글자에 'a' 문자가 포함되어 있는 단어만 필터링
+// 'str'.includes(): true, false 반환 메서드
 const filterResult2 = words.filter((e) => e.includes('a'));
 console.log(filterResult2);
+
+////////////////////////////////////////
+// for in 반복문
+// 객체의 key를 반복할 수 있는 구문
+
+const me = { name: 'hyuk', gender: 'm', hobby: 'tennis' };
+for (let key in me) {
+  console.log(key, me[key]);
+  // key: key
+  // value: me[key]
+}
