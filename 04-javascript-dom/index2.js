@@ -43,3 +43,23 @@ console.log(document.querySelectorAll('.pink')[3]);
 
 console.log(document.getElementsByTagName('input'));
 console.log(document.getElementsByName('id'));
+
+// 유사 배열 (HTMLCollection, NodeList)
+// [] 식으로 생긴 배열을 의미.   배열은 아님
+// index, length는 가짐..
+// 배열과 달리 사용 가능한 메서드가 제한
+
+// NodeList -> forEach() 반복문 사용 가능
+document.querySelectorAll('.pink').forEach((elem) => console.log(elem));
+
+// HTMLCollection -> forEach() 메서드 사용 x
+// 반복을 해야된다? Array 변경 (Array.from())
+Array.from(document.getElementsByClassName('pink')).forEach((elem) =>
+  console.log(elem)
+);
+
+// for of 반복문
+const pinks = document.querySelectorAll('.pink');
+for (let pink of pinks) {
+  console.log(pink);
+}
