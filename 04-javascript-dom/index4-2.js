@@ -2,8 +2,8 @@ let ind = 0;
 
 document.querySelector('#upBtn').addEventListener('click', () => {
   let year = new Date().getFullYear();
-  let month = new Date().getMonth();
-  let day = new Date().getDay();
+  let month = new Date().getMonth() + 1;
+  let day = new Date().getDay() + 1;
   let hour = new Date().getHours();
   let minute = new Date().getMinutes();
 
