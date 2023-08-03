@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습, 스케줄 만들기</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <style>
+      td {
+        padding: 50px;
+      }
+      th {
+        font-weight: bold;
+        font-size: 40px;
+      }
+    </style>
+    <span>날짜 : </span>
+    <input type="text" class="day" />
+    <br />
+    <span>내용 : </span>
+    <input type="text" class="comment" />
+    <br />
+    <button class="submit">작성</button>
+    <br />
+
+    <div class="table_container">
+      <table class="calendar">
+        <th colspan="7" style="color: blue">2023년 8월</th>
+        <tr>
+          <td style="color: red">일</td>
+          <td>월</td>
+          <td>화</td>
+          <td>수</td>
+          <td>목</td>
+          <td>금</td>
+          <td style="color: blue">토</td>
+        </tr>
+        <tr>
+          <td style="color: red">7.30</td>
+          <td>7.31</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td style="color: blue">5</td>
+        </tr>
+        <tr>
+          <td style="color: red">6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td style="color: blue">12</td>
+        </tr>
+        <tr>
+          <td style="color: red">13</td>
+          <td>14</td>
+          <td style="color: red">15 광복절</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td style="color: blue">19</td>
+        </tr>
+        <tr>
+          <td style="color: red">20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+          <td style="color: blue">26</td>
+        </tr>
+        <tr>
+          <td style="color: red">27</td>
+          <td>28</td>
+          <td>29</td>
+          <td>30</td>
+          <td>31</td>
+          <td>9.1</td>
+          <td style="color: blue">9.2</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      $('.submit').click(function () {
+        let daynum = $('.day').val();
+        console.log(daynum);
+        let comment = $('.comment').val();
+
+        let filterday = $('.calendar td').filter(function () {
+          return $(this).text() == daynum;
+        });
+        filterday.append(`<li>${comment}</li>`);
+      });
+    </script>
+  </body>
+</html>
