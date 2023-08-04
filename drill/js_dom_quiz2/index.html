@@ -36,7 +36,7 @@
     <div class="container">
       <h1>👨🏻‍🎨 Create Random Color 🌈</h1>
       <h2>rgb(255, 255, 255)</h2>
-      <button>Create</button>
+      <button onClick="colorChange()">Create</button>
     </div>
     <script>
       // TODO: 아래 조건을 만족하도록 js 파일을 수정하기
@@ -49,6 +49,20 @@
       // - [ ] 색상을 나타내는 방식에는 헥스 코드(#RRGGBB)와 10진 코드 (R,G,B) 두 가지 방식이 있습니다.
       //    - 이 프로젝트에서는 10진 코드(r, g, b) 방식을 사용합니다.
       //    - rgb(r, g, b)에서 red, green, blue 숫자 범위는 0이상 255이하 입니다. 즉, 각 색상마다 0 ~ 255 사이의 랜덤한 값을 생성해야 합니다.
+      const body = document.querySelector('body');
+      const h2 = document.querySelector('h2');
+
+      const colorChange = () => {
+        body.style.backgroundColor = `rgb(${getRGBValue()})`;
+        h2.style.color = `rgb(${getRGBValue()})`;
+      };
+
+      const getRGBValue = () => {
+        let red = parseInt(Math.random() * 256).toString();
+        let green = parseInt(Math.random() * 256).toString();
+        let blue = parseInt(Math.random() * 256).toString();
+        return red + ',' + green + ',' + blue;
+      };
     </script>
   </body>
 </html>

@@ -38,6 +38,15 @@
 
     <script>
       // TODO: 문제 조건을 만족하는 js 코드 작성
+      const container = document.querySelector('.container');
+      container.style.backgroundColor = '#eee';
+      container.style.textAlign;
+      let span = document.querySelector('.container > div > span');
+      while (span) {
+        span.style.color = 'blueviolet';
+        span.style.fontWeight = 'bold';
+        span = span.nextElementSibling;
+      }
     </script>
   </body>
 </html>
