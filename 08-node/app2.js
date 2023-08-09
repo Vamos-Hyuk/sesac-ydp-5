@@ -18,6 +18,9 @@
 //     add: add,
 //     PI: PI,
 //     E: E,
+//     sub: sub,
+//     mul: mul,
+//     div: div
 //   };
 const { add, PI, E } = require('./math2');
 
