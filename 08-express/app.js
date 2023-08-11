@@ -30,7 +30,7 @@ app.get('/', function (request, response) {
       name: 'kyle',
       msg: '저는 kyle입니다. 반갑습니다!!!',
     },
-    isLogin: false,
+    isLogin: true,
   });
 });
 
