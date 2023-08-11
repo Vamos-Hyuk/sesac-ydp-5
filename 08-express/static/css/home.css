@@ -11,3 +11,10 @@ p {
   background-color: royalblue;
   color: white;
 }
+
+h2 {
+  font-size: medium;
+  background-color: rosybrown;
+  color: white;
+  text-align: center;
+}
