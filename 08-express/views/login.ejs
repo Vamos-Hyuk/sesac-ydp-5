@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인 페이지</title>
+    <%- include('./includes/head', {title: '로그인'}) %>
   </head>
   <body>
+    <%- include('./includes/header') %>
     <input type="userId" placeholder="로그인" /> <br />
     <input type="password" placeholder="비밀번호" /><br />
     <button>로그인</button>

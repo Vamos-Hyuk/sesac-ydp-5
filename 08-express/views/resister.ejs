@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인 페이지</title>
+    <%- include('./includes/head', {title: '레지스터'}) %>
   </head>
   <body>
+    <%- include('./includes/header') %>
     <input type="text" placeholder="사용할 ID" /> <br />
     <input type="text" placeholder="사용할 PW" /><br />
     <input type="text" placeholder="주소" /><br />
