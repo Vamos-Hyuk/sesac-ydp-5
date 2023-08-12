@@ -180,18 +180,6 @@ console.log(house2);
 house2.getAge();
 house2.getWindow();
 
-class Shape {
-  constructor(wid, dep) {
-    this.wid = wid;
-    this.dep = dep;
-  }
-  getArea() {
-    return this.wid * this.dep;
-  }
-}
-const rec1 = new Shape(3, 4);
-console.log(rec1.getArea());
-
 // 클래스 상속
 // 부모 클래스: House
 // 자식 클래스 Apartment
@@ -220,3 +208,51 @@ const apt1 = new Apartment(2022, '래미안', 3, 20, 'KCC');
 console.log(apt1);
 console.log(apt1.getAptInfo());
 console.log(apt1.getWindow());
+
+/////////////////////////
+
+class Shape {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  getArea() {
+    return this.width * this.height;
+  }
+}
+
+class Rectangle extends Shape {
+  getDiagonal() {
+    return Math.sqrt(this.width ** 2 + this.height ** 2);
+  }
+}
+
+class Triangle extends Shape {
+  constructor(width, height) {
+    super(width, height);
+  }
+
+  getArea() {
+    return (this.width * this.height) / 2;
+  }
+}
+
+class Circle extends Shape {
+  constructor(width, height, radius) {
+    super(width, height);
+    this.radius = radius;
+  }
+
+  getArea() {
+    return this.radius ** 2 * Math.PI;
+  }
+}
+
+let rec1 = new Rectangle(3, 4);
+let tri1 = new Triangle(3, 4);
+let cir1 = new Circle(3, 4, 5);
+console.log(rec1.getArea());
+console.log(rec1.getDiagonal());
+console.log(tri1.getArea());
+console.log(cir1.getArea());
