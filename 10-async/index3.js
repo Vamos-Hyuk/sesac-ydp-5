@@ -166,11 +166,11 @@ function hell() {
 }
 
 async function exec() {
-  let call = call('kim');
+  const call = call('kim');
   console.log(call + '반가워');
-  let back = await back();
+  const back = await back();
   console.log(back + '을 실행했구나');
-  let hell = await hell();
+  const hell = await hell();
   console.log(hell);
 }
 exec();
