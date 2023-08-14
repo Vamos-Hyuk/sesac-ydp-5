@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>GET 요청</h2>
+    <form action="/getForm" method="get">
+      <input type="text" name="id" placeholder="ID" />
+      <input type="password" name="pw" placeholder="PW" />
+      <button>제출</button>
+    </form>
+
+    <h2>Post 요청</h2>
+    <form action="/postForm" method="post">
+      <input type="text" placeholder="ID" />
+      <input type="password" placeholder="PW" />
+      <button>제출</button>
+    </form>
+
+    <form action="">
+      <p>이름 <input type="text" /></p>
+      <fieldset class="">
+        <legend>성별</legend>
+        <input type="radio" name="sex" id="M" /><label for="M">남자</label>
+        <input type="radio" name="sex" id="F" /><label for="F">여자</label>
+      </fieldset>
+      <br />
+      <fieldset class="">
+        <legend>생년월일</legend>
+
+        <select name="year" id="year"></select>
+        <label for="year">년</label>
+
+        <select name="month" id="month"></select>
+        <label for="month">월</label>
+
+        <select name="day" id="day"></select>
+        <label for="day">일</label>
+      </fieldset>
+      <br />
+      <fieldset class="">
+        <legend>관심사</legend>
+        <input type="checkbox" name="tennis" id="tennis" /><label for="tennis"
+          >테니스</label
+        >
+        <input type="checkbox" name="soccor" id="soccor" /><label for="soccor"
+          >축구</label
+        >
+        <input type="checkbox" name="develop" id="develop" /><label
+          for="develop"
+          >개발</label
+        >
+        <input type="checkbox" name="youtube" id="youtube" /><label
+          for="youtube"
+          >유투브</label
+        >
+        <input type="checkbox" name="music" id="music" /><label for="music"
+          >음악</label
+        >
+      </fieldset>
+
+      <script>
+        // 년 옵션 생성
+        var yearSelect = document.getElementById('year');
+        var currentYear = new Date().getFullYear();
+        for (var year = 1950; year <= currentYear; year++) {
+          var option = document.createElement('option');
+          option.value = year;
+          option.text = year;
+          yearSelect.appendChild(option);
+        }
+        // 월 옵션 생성
+        var monthSelect = document.getElementById('month');
+        for (var month = 1; month <= 12; month++) {
+          var option = document.createElement('option');
+          option.value = month;
+          option.text = month + '월';
+          monthSelect.appendChild(option);
+        }
+        // 일 옵션 생성
+        var daySelect = document.getElementById('day');
+        for (var day = 1; day <= 31; day++) {
+          var option = document.createElement('option');
+          option.value = day;
+          option.text = day + '일';
+          daySelect.appendChild(option);
+        }
+      </script>
+    </form>
+  </body>
+</html>
