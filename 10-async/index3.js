@@ -139,7 +139,7 @@
 
 // 과제 2.
 
-function call(name) {
+function callFunc(name) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log(name);
@@ -148,7 +148,7 @@ function call(name) {
   });
 }
 
-function back() {
+function backFunc() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       console.log('back');
@@ -157,7 +157,7 @@ function back() {
   });
 }
 
-function hell() {
+function hellFunc() {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       resolve('callback hell');
@@ -166,11 +166,13 @@ function hell() {
 }
 
 async function exec() {
-  const call = call('kim');
+  const call = callFunc('kim');
   console.log(call + '반가워');
-  const back = await back();
+  const back = await backFunc();
   console.log(back + '을 실행했구나');
-  const hell = await hell();
+  const hell = await hellFunc();
   console.log(hell);
 }
 exec();
+
+// 과제 3.
