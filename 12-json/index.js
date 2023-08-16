@@ -10,7 +10,7 @@ const car = `{
 
 console.log(car); // format: json
 
-// JSON.parse() : json to js obj
+// JSON.parse() : json to js obj (역직렬화)
 const obj = JSON.parse(car);
 console.log(obj);
 
@@ -19,7 +19,7 @@ console.log(obj.model);
 console.log(obj.company);
 console.log(obj.wow);
 
-// 
+// JSON.stringify() : js obj to json (직렬화)
 const json = JSON.stringify(obj);
 console.log(json, typeof json);
 
