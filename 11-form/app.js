@@ -25,10 +25,15 @@ app.get('/', (req, res) => {
 // get 방식은 클라이언트에서 보낸 데이터가 req.query에 저장
 app.get('/getForm', (req, res) => {
   console.log(req.query);
+
   //   res.send('get 요청 성공')
   res.render('result', { title: 'GET 요청', userInfo: req.query });
 });
 
+app.get('/getForm2', (req, res) => {
+  console.log(req, res);
+  res.render('index2', { title: '회원가입 요청', userInfo: req.query });
+});
 // POST: '/postForm' => 임의의 메세지 전송
 // post 방식은 클라이언트에서 보낸 데이터가 req.body에 저장
 app.post('/postForm', (req, res) => {

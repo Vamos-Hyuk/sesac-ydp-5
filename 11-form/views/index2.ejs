@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입 완료</title>
+  </head>
+  <body>
+    <p>고객님의 이름은 <%= userInfo.text %> 이군요!</p>
+    <p>고객님의 성별은 <%= userInfo.gender %> 이군요!</p>
+    <p>
+      고객님의 생년월일은 <%= userInfo.year %>년 <%= userInfo.month %>월 <%=
+      userInfo.day %>일 이군요!
+    </p>
+    <% if (userInfo.interest) { %>
+    <p>고객님의 취미는 <%= userInfo.interest %> 이군요!</p>
+    <% } %>
+    <p>고객님이 좋아하는 색상은 <%= userInfo.fav_color %> 이군요!</p>
+    <p>고객님이 좋아하는 숫자는 <%= userInfo.fav_number %> 이군요!</p>
+    <br />
+    <br />
+    <a href="/">홈으로 이동</a>
+  </body>
+</html>
