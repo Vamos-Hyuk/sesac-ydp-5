@@ -31,11 +31,12 @@ app.get('/practice2', (req, res) => {
 
 app.get('/result1', (req, res) => {
   console.log(req.query);
-  res.render('result');
+  res.render('result', { user: req.query });
 });
 
 app.post('/result2', (req, res) => {
-  res.render('result');
+  console.log(req.body);
+  res.render('result', { user: req.body });
 });
 
 app.listen(PORT, () => {
