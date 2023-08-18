@@ -75,19 +75,17 @@
 
     <hr />
     <h2>실습2. axios post 로그인</h2>
-    <p>
+    <p style="color: gray">
       (참고) app.js에 저장한 아이디는 banana이고, 비밀번호는 4321 입니다.
       아이디와 비밀번호가 일치할 때와 불일치할 때 어떨게 다른지 확인해보세요!
     </p>
     <form name="login">
-      <label for="userId">아이디</label>
-      <input type="text" id="userId" name="userId" required />
-      <label for="userPw">비밀번호</label>
-      <input type="password" id="userPw" name="userPw" required />
-      <button type="button" onclick="clickLogin();">로그인</button>
+      <label for="id">아이디 </label><input type="text" id="id" name="id" />
+      <label for="pw">비밀번호 </label
+      ><input type="password" id="pw" name="pw" />
+      <button type="button" onClick="axiosLogin()">로그인</button>
     </form>
-    <div class="result_login_error"></div>
-    <div class="result"></div>
+    <div class="result2"></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
       const resultBox = document.querySelector('div.result');
@@ -115,32 +113,26 @@
     </script>
 
     <script>
-      function axiosPost() {
-        console.log('login 함수 출력');
+      function axiosLogin() {
+        const resultBox = document.querySelector('div.result2');
         const form = document.forms['login'];
         const data = {
-          userId: form.userId.value,
-          userPw: form.userPw.value,
+          id: form.id.value,
+          pw: form.pw.value,
         };
-        if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
-          loginResult.textContent = `아이디, 비밀번호는 필수 값 입니다. `;
-          return;
-        }
+
         axios({
-          method: 'POST',
+          method: 'post',
           url: '/axios',
-          params: data,
+          data: data,
         }).then(function (response) {
           console.log(response);
-          console.log(response.data);
-          if (response.data.isSuccess) {
-            loginResult.textContent = `${response.data.userInfo.userId}님 로그인 성공!!`;
-            loginResult.classList.remove('error');
-            loginResult.classList.add('success');
+          if (response.data.id) {
+            resultBox.innerHTML = `${response.data.id}님! 로그인 성공 🥰`;
+            resultBox.style.color = 'blue';
           } else {
-            loginResult.textContent = '아이디 또는 패스워드 오류!';
-            loginResult.classList.remove('success');
-            loginResult.classList.add('error');
+            resultBox.innerHTML = `${response.data}`;
+            resultBox.style.color = 'red';
           }
         });
       }
