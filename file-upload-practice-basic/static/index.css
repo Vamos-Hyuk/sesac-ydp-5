@@ -1,0 +1,28 @@
+/* TODO: CSS 파일 정의 */
+body {
+  background-color: rgb(28, 27, 27);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+li {
+  margin-left: 0px;
+  list-style: none;
+}
