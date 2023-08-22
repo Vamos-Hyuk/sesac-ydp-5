@@ -25,7 +25,7 @@ const uploadDetail = multer({
 app.set('view engine', 'ejs');
 app.use('/views', express.static(__dirname + '/views'));
 app.use('/uploads', express.static(__dirname + '/uploads'));
-app.use('/static', express.static(__dirname + '/static'));
+app.use('/static', express.static(__dirname + '/static')); // => static 미들웨어 설정 잊지말것!
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 });
 app.post('/result', uploadDetail.single('profile'), (req, res) => {
   const { userId, userPw, userName, age } = req.body;
-  const profileImg = req.file.filename;
+  const profileImg = req.file.filename; // => /uploads에 저장되는 파일이름 확인해서 경로 설정해야함!
   console.log(req.file);
   res.render('result', {
     userId,
