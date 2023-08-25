@@ -247,3 +247,92 @@ select * from user where age >= 25 and age <= 50;
 update user set pw = '12345678' where id = 'hong1234';
 
 delete from user where id = 'jungkrat';
+
+-- < order by >
+-- order by 없음: pk 기준 오름차순 정렬
+select * from customer;
+select * from customer order by custname;
+select * from customer order by custname desc;
+
+-- where 절과 order by 함께 사용 (단, 이 때 order by 가 where 보다 뒤에 위치해야함)
+-- 2000년생 이후 출생자 중에서 주소를 기준으로 내림차순 검색
+select * from customer where birth >= '2000-01-01' order by addr desc;
+
+-- 2000년생 이후 출생자 중에서 주소를 기준으로 내림차순 검색 그리고 아이디를 기준으로 내림차순 검색
+select * from customer where birth >= '2000-01-01' order by addr desc, custid desc;
+
+select * from customer where birth >= '2000-01-01' order by addr, custid desc;
+
+-- < limit >
+-- 행의 개수를 제한
+select * from customer where birth >= '2000-01-01' limit 2;
+select * from customer limit 3;
+
+-- < 집계 함수 >
+-- 계산하여 어떤 값을 리턴하는 "함수"
+-- group by 절과 함께 쓰이는 케이스가 많음
+
+-- 주문 테이블에서 총 판매 개수 검색
+select sum(amount) from orders;
+
+-- 주문 테이블에서 총 판매 개수 검색 + 의미있는 열이름으로 변경 (total_sales)
+select sum(amount) as 'total_amount' from orders;
+
+-- 주문 테이블에서 총 판매 개수, 평균 판매 개수, 상품 최저가, 상품 최고가 검색
+select sum(amount) as 'total_amount', avg(amount), min(price), max(price) from orders;
+    
+-- 주문 테이블에서 총 주문 건수 (= 튜플 개수)
+select count(*) from orders;
+
+-- 주문 테이블에서 주문한 고객 수 (중복 없이)
+select count(distinct custid) from orders;
+
+
+-- < group by >
+-- "~별로"
+
+-- 고객별로 주문한 주문 건수 구하기
+select custid, count(*) from orders group by custid; 
+
+-- 고객별로 주문한 상품 총 수량 구하기
+select custid, sum(amount) from orders group by custid;
+
+-- 고객별로 주문한 총 주문액 확인
+select custid, sum(price * amount) from orders group by custid;
+
+-- 상품별 판매 개수 구하기
+select prodname, sum(amount) from orders group by prodname;
+
+-- < having >
+-- group by 절 이후 추가 조건
+
+-- 총 주문액이 10000원 이상인 고객에 대해서/ 고객별로 주문한 상품 총 수량 구하기
+
+select custid, sum(amount), sum(price * amount) from orders
+	group by custid having 
+    sum(price * amount)  >= 10000;
+
+-- 총 주문액이 10000원 이상인 고객에 대해서 고객별로 주문한 상품 총 수량 구하기
+-- 단 custid가 'bunny'인 고객은 제외하고 출력할 것!
+select custid, sum(amount), sum(price * amount) from orders
+	where custid != 'bunny'
+	group by custid having 
+    sum(price * amount)  >= 10000;
+-- group by 주의 사항
+-- select 절에서 group by 에서 사용한 속성과 집계함수만 사용 가능
+-- 고객별로 주문한 주문 건수 구하기
+select custid, count(*) from orders group by custid;
+
+/*
+Where  vs.  Having
+Having
+	- 그룹에 대해서 필터링(그래서 group by 함께 쓰임)
+	- group by 보다 뒤에 위치
+	- 집계 함수랑 함께 사용 가능
+
+Where
+	- 각각의행을 필터링
+	- group by 보다 앞에 위치
+집계 함수를 쓸 수는 있으나 having 처럼 자유롭게 쓸 수는 없음
+*/
+
