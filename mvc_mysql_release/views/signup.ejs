@@ -26,30 +26,29 @@
       // POST /user/signup
       function register() {
         const form = document.forms['form_register'];
-        if (!form.userid.value) {
-          alert('아이디를 입력해주세요');
-        } else if (!form.password.value) {
-          alert('비밀번호를 입력해주세요');
-        } else if (!form.name.value) {
-          alert('이름을 입력해주세요');
-        } else {
-          axios({
-            method: 'POST',
-            url: '/user/signup',
-            data: {
-              userid: form.userid.value,
-              name: form.name.value,
-              pw: form.password.value,
-            },
-          })
-            .then((result) => {
-              alert('회원가입 완료');
-              document.location.href = '/user/signin';
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
         }
+
+        axios({
+          method: 'POST',
+          url: '/user/signup',
+          data: {
+            userid: form.userid.value,
+            pw: form.pw.value,
+            name: form.name.value,
+          },
+        })
+          .then((res) => {
+            console.log(res);
+            return res.data;
+          })
+          .then(() => {
+            console.log('create');
+            alert('회원가입 성공');
+            document.location.href = '/user/signin';
+          });
       }
     </script>
   </body>

@@ -9,9 +9,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // TODO: 라우팅 분리
+app.get('/', (req, res) => {
+  res.render('index');
+});
 // 기본 주소: localhost:PORT/user <- 주의!!
-const indexRouter = require('./routes/user'); // index는 생략 가능!
-app.use('/user', indexRouter);
+const userRouter = require('./routes/user'); // index는 생략 가능!
+app.use('/user', userRouter);
 // TODO: 404 에러 처리
 app.get('*', (req, res) => {
   res.render('404');
