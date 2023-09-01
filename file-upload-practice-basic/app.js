@@ -23,7 +23,7 @@ const uploadDetail = multer({
 });
 
 app.set('view engine', 'ejs');
-app.use('/views', express.static(__dirname + '/views'));
+app.set('/views', '/views');
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use('/static', express.static(__dirname + '/static')); // => static 미들웨어 설정 잊지말것!
 app.use(express.urlencoded({ extended: true }));
