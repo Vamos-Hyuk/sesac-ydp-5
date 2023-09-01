@@ -1,4 +1,4 @@
-use sesac;
+use user;
 show tables;
 
 -- 테이블 구조 확인
@@ -19,3 +19,7 @@ delete from Player where plyaer_id = 1;
 drop table Profile;
 drop table Player;
 drop table Team;
+
+
+-- 
+create user 'user'@'%' identified with mysql_native_password by '1234';
