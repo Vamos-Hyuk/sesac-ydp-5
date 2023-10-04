@@ -124,25 +124,25 @@ alphabets.forEach(function (alpha, idx, arr) {
   console.log(alpha, idx, arr);
 });
 
-let numbers = [1, 2, 3, 4, 5, 6];
-var sum1 = 0;
-var sum2 = 0;
-var sum3 = 0;
+// let numbers = [1, 2, 3, 4, 5, 6];
+// var sum1 = 0;
+// var sum2 = 0;
+// var sum3 = 0;
 
-for (let i = 0; i < numbers.length; i++) {
-  console.log(numbers[i]);
-  sum1 = sum1 + numbers[i];
-}
+// for (let i = 0; i < numbers.length; i++) {
+//   console.log(numbers[i]);
+//   sum1 = sum1 + numbers[i];
+// }
 
-for (let num of numbers) {
-  sum2 = sum2 + num;
-}
+// for (let num of numbers) {
+//   sum2 = sum2 + num;
+// }
 
-numbers.forEach((num) => {
-  sum3 = sum3 + num;
-});
+// numbers.forEach((num) => {
+//   sum3 = sum3 + num;
+// });
 
-console.log(sum1, sum2, sum3);
+// console.log(sum1, sum2, sum3);
 
 // map, filter, find 메서드
 const arr4 = [1, 2, 3, 4, 5];
@@ -188,3 +188,29 @@ for (let key in me) {
   // key: key
   // value: me[key]
 }
+
+/////////////////////////////////////
+// reduce()
+// : 배열의 각 요소에 대해서 주어진 리듀터(reducer) 함수를 실행하고, "하나의 결과값" 반환
+
+// reduce(acc, cur)
+// - acc: 누적되는 값
+// - cur: 현재 요소
+
+const numbers = [1, 2, 3, 4, 5];
+const initalValue = 100;
+const result = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, initalValue);
+console.log(result);
+
+//////////////////////////////////////
+// 여러 배열 합칠 때 사용 가능한 메서드
+// 1. concat()
+
+const arr_1 = [1, 2, 3];
+const arr_2 = [3, 4, 5];
+console.log(arr_1.concat(arr_2));
+
+// 2. spread()
+console.log(arr_1, ...arr_2);
