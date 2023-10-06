@@ -1,5 +1,6 @@
 import Alphabet from './Alphabet';
 import Event_ex from './ex/Event_ex';
+import Ex1 from './ex/Ex1';
 import Pr1 from './ex/Pr1';
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
       <Event_ex />
       <hr />
       <Pr1 />
+      <hr />
+      <Ex1 />
     </div>
   );
 }
