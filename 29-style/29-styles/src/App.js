@@ -11,10 +11,10 @@ function App() {
       <h2>CSS Module</h2>
 
       <p>CssModuleComponents</p>
-      {/* <CssModuleComponents /> */}
+      <CssModuleComponents />
 
       <h2>SassComponent</h2>
-      {/* <SassComponent /> */}
+      <SassComponent />
 
       <h2>StyledComponent</h2>
       <StyledComponent />
