@@ -1,4 +1,6 @@
 import CssModuleComponents from './CssModuleComponents';
+import SassComponent from './SassComponent';
+import StyledComponent from './StyledComponent';
 import './styles/App.css';
 
 function App() {
@@ -9,7 +11,13 @@ function App() {
       <h2>CSS Module</h2>
 
       <p>CssModuleComponents</p>
-      <CssModuleComponents />
+      {/* <CssModuleComponents /> */}
+
+      <h2>SassComponent</h2>
+      {/* <SassComponent /> */}
+
+      <h2>StyledComponent</h2>
+      <StyledComponent />
     </div>
   );
 }
