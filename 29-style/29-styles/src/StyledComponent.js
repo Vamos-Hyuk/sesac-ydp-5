@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// CSS in JS : js 안에 css를 작성함
+// styled-components, emotion, styled-jax, ...
 const StyledContainer = styled.div`
   display: flex;
 `;
