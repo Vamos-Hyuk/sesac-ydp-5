@@ -4,23 +4,21 @@
 let drink: [string, string] = ['사이다', '롯데'];
 drink[0] = 'cider';
 drink[1] = 'lotte';
-
-// drink.push('얏호'); // tuple 한계 이렇게 하면 tuple을 사용하는 의미가 없음!
-
+// drink.push('얏호'); // tuple 한계
 console.log(drink);
 
 // readonly: 요소 타입 순서와 길이 고정
 let drink2: readonly [string, number] = ['사이다', 2200];
-// drink2.push('얏호');
-console.log(drink2);
+// drink2.push('얏호'); // error
 
-// tuple ex
-type productInfo = [number, string, number]; //type 별칭으로 type 선언
-let product1: productInfo = [1, '로지텍 MX master3', 130000];
+// Tuple ex
+type productInfo = [number, string, number]; // type 별칭으로 type 선언
+let product1: productInfo = [1, '로지텍 MX master3', 1300000];
 let product2: productInfo = [2, '로지텍 K380', 52000];
-// let product3: [number, string, number] = [3, '로지텍 K380', 'apple'] // type error
+// let product3: productInfo = [2, '로지텍 K380', 'Apple']; // type error
 
-// Enum(열거형)
+///////////////////////////////////////////////////////////
+// Enum
 enum Auth {
   admin = 0,
   user = 1,
@@ -40,36 +38,125 @@ enum Cake {
   vanilla,
   kiwi = '키위 케이크',
 }
-
 console.log(Cake.choco);
 console.log(Cake.kiwi);
 
-/////////////////////////////////
+///////////////////////////////////////////////////////////
+//
 // 명시적으로
 let val: any;
 val = true;
 val = '하이';
 val = 10000;
-val = { name: 'sean' };
+val = { name: 'sesac' };
 
 // 암묵적으로
 let val2;
 val2 = false;
 val2 = '바이';
+///////////////////////////////////////////////////////////
+// type & interface
 
-// 실습1 : 오브젝트, 불리언 데이터 타입 순으로 설정하는 튜플 만들어보기
-// 실습2 : olimpic_newgame[1] = false 를 했을때 변경되지 않도록 수정할 수 없는 데이터 만들기
+// 1. interface
+interface Student {
+  name: string;
+  isPassed: boolean;
+}
 
-let olimpicgame: readonly [object, boolean] = [
-  {
-    name: '쇼트트랙',
-    type: '혼성 계주',
+const student1: Student = {
+  name: 'jinheyong',
+  isPassed: true,
+  // addr: 'seoul',
+};
+
+const student2: object = {
+  name: 'jinheyong',
+  isPassed: true,
+  addr: 'seoul',
+};
+
+// interface 상속
+// A+, A, B, C, D, F
+// type Score = 'A+' | 'A' | 'B' | 'C' | 'D' | 'F';
+enum Score {
+  Aplus = 'A+',
+  A = 'A',
+  B = 'B',
+  C = 'C',
+  D = 'D',
+  F = 'F',
+}
+
+interface BaseballClub extends Student {
+  position: string;
+  height: number;
+  readonly backNumber?: number; // ?: 있어도 되고 없어도 됨
+  // [grade: number]: string;
+  [grade: number]: Score;
+}
+
+const otani: BaseballClub = {
+  name: 'ontani',
+  isPassed: true,
+  position: 'pitcher',
+  height: 193,
+  backNumber: 17,
+  1: Score.A, // 학년: 점수
+  // 2: 'NP', // error
+};
+console.log(otani);
+
+otani.position = '투수';
+otani['height'] = 200;
+// otani.backNumber = 16; // error : backNumber readonly
+console.log(otani);
+
+// type vs. enum
+type Bp1 = 500 | 700 | 1000;
+enum Bp2 {
+  SM = 500,
+  MD = 700,
+  LG = 1000,
+}
+
+const width1: Bp1 = 500;
+const width2: Bp2 = Bp2.SM;
+
+// 교차 타입: 두개 이상의 타입을 합치는 것
+interface Toy {
+  name: string;
+  start(): void;
+}
+
+interface Car {
+  name: string;
+  color: string;
+  price: number;
+}
+
+type ToyCar = Toy & Car;
+const toyCar: ToyCar = {
+  name: 'tayo',
+  start() {
+    console.log('출발~~');
   },
-  true,
-];
+  color: 'blue',
+  price: 5000,
+};
 
-// 선택실습 : arrA와 arrB는 같은 결과가 출력된다. 차이가 무엇인지 생각 댓글로 달아 보시오
-let arrA: any[] = [1, true, 'string'];
-let arrB = [1, true, 'string'];
-console.log(arrA);
-console.log(arrB);
+// 2. type
+type Gender = 'F' | 'M';
+type Person = {
+  name: string;
+  age?: number;
+  like?: string[];
+  // gender: string;
+  gender: Gender;
+};
+
+let daniel: Person = {
+  name: 'daniel',
+  gender: 'F', // Gender 타입에 선언된 값만 넣을 수 있음
+  age: 20,
+  like: ['minji', 'hani'],
+};
