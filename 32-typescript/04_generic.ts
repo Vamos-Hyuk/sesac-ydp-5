@@ -79,3 +79,30 @@ const galaxy23: Phone<galaxyOption> = {
   },
 };
 console.log(galaxy23);
+
+// 실습1
+function sum1(a: number, b: number): number {
+  return a + b;
+}
+console.log(sum1(5, 11));
+
+// // 실습2
+// function sum2(a: number, b: number, c: number, d: number, e: number) {
+//   return a + b + c + d + e;
+// }
+
+function sum2(...number: number[]): number {
+  let sum = 0;
+  for (let num of number) {
+    sum += num;
+  }
+  return sum;
+}
+console.log(sum2(1, 2, 3, 4, 10));
+
+// 실습 3
+
+function arrElement<T>(arr: T[], index: number): any {
+  return `${arr[index]}와 타입은 : ${typeof arr[index]}`;
+}
+console.log(arrElement<string>(['a'], 0));
